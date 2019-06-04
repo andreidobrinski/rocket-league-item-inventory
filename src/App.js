@@ -6,13 +6,16 @@ const App = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
+  const [isLoading, setLoading] = useState(true);
 
   const checkLoggedIn = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         setLoggedIn(true);
+        setLoading(false);
       } else {
         setLoggedIn(false);
+        setLoading(false);
       }
     });
   };
@@ -21,6 +24,8 @@ const App = () => {
     firebase.initializeApp(firebaseConfig);
     checkLoggedIn();
   }, []);
+
+  if (isLoading) return <p>loading...</p>;
 
   return (
     <div>
