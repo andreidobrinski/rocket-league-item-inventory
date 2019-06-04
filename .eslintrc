@@ -10,7 +10,8 @@
     "prettier"
   ],
   "rules": {
-    "react-hooks/rules-of-hooks": "error"
+    "react-hooks/rules-of-hooks": "error",
+    "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"] }],
   },
   "env": {
     "browser": true,
