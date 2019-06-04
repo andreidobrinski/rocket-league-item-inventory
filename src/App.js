@@ -1,24 +1,77 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import firebase from 'firebase';
+import firebaseConfig from './firebaseConfig';
 
-function App() {
+const App = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const checkLoggedIn = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        setLoggedIn(true);
+      } else {
+        setLoggedIn(false);
+      }
+    });
+  };
+
+  useEffect(() => {
+    firebase.initializeApp(firebaseConfig);
+    checkLoggedIn();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {loggedIn ? (
+        <>
+          <p>you're logged in</p>
+          <button
+            onClick={() => {
+              firebase.auth().signOut();
+              checkLoggedIn();
+            }}
+            type="button"
+          >
+            sign out
+          </button>
+        </>
+      ) : (
+        <form>
+          <label>
+            Name:
+            <input
+              onChange={e => setEmail(e.target.value)}
+              type="text"
+              value={email}
+            />
+          </label>
+          <label>
+            Password:
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              type="text"
+              value={password}
+            />
+          </label>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              firebase.auth().signInWithEmailAndPassword(email, password)
+                .then(() => checkLoggedIn())
+                .catch(() => {
+                  firebase.auth().createUserWithEmailAndPassword(email, password)
+                  .then(() => checkLoggedIn())
+                  .catch(() => checkLoggedIn());
+                });
+            }}
+            type="submit"
+          >
+            login
+          </button>
+        </form>
+      )}
     </div>
   );
 }
