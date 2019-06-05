@@ -1,52 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import firebase from 'firebase';
+import React from 'react';
 
-import LoginForm from './LoginForm';
-import firebaseConfig from './firebaseConfig';
+import { FirebaseContextProvider } from './auth/FirebaseContext';
+import { LoggedInContextProvider } from './auth/LoggedInContext';
+import Login from './auth/Login';
 
-const App = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [isLoading, setLoading] = useState(true);
-
-  const checkLoggedIn = () => {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        setLoggedIn(true);
-        setLoading(false);
-      } else {
-        setLoggedIn(false);
-        setLoading(false);
-      }
-    });
-  };
-
-  useEffect(() => {
-    firebase.initializeApp(firebaseConfig);
-    checkLoggedIn();
-  }, []);
-
-  if (isLoading) return <p>loading...</p>;
-
-  return (
-    <div>
-      {loggedIn ? (
-        <>
-          <p>you're logged in</p>
-          <button
-            onClick={() => {
-              firebase.auth().signOut();
-              checkLoggedIn();
-            }}
-            type="button"
-          >
-            sign out
-          </button>
-        </>
-      ) : (
-        <LoginForm onSubmit={checkLoggedIn} />
-      )}
-    </div>
-  );
-}
+const App = () => (
+  <FirebaseContextProvider>
+    <LoggedInContextProvider>
+      <Login />
+    </LoggedInContextProvider>
+  </FirebaseContextProvider>
+);
 
 export default App;

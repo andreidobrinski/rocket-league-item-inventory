@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
-import firebase from 'firebase';
-import PropTypes from 'prop-types';
+import React, { useContext, useState } from 'react';
 
-const LoginForm = ({ onSubmit }) => {
+import { FirebaseContext } from './auth/FirebaseContext';
+import { LoggedInContext } from './auth/LoggedInContext';
+
+const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { firebase } = useContext(FirebaseContext);
+  const { checkLoggedIn } = useContext(LoggedInContext);
 
   return (
     <form>
@@ -30,11 +33,11 @@ const LoginForm = ({ onSubmit }) => {
         onClick={(e) => {
           e.preventDefault();
           firebase.auth().signInWithEmailAndPassword(email, password)
-            .then(() => onSubmit())
+            .then(() => checkLoggedIn())
             .catch(() => {
               firebase.auth().createUserWithEmailAndPassword(email, password)
-              .then(() => onSubmit())
-              .catch(() => onSubmit());
+              .then(() => checkLoggedIn())
+              .catch(() => checkLoggedIn());
             });
         }}
         type="submit"
@@ -43,10 +46,6 @@ const LoginForm = ({ onSubmit }) => {
       </button>
     </form>
   );
-};
-
-LoginForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };
 
 export default LoginForm;
