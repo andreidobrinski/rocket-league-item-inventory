@@ -1,5 +1,6 @@
 import React, {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useMemo,
@@ -16,7 +17,7 @@ export const LoggedInContextProvider = props => {
   const [currentUser, setCurrentUser] = useState();
   const { firebase, fbLoading } = useContext(FirebaseContext);
 
-  const checkLoggedIn = () => {
+  const checkLoggedIn = useCallback(() => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         setCurrentUser(user);
@@ -27,17 +28,17 @@ export const LoggedInContextProvider = props => {
         setLoading(false);
       }
     });
-  };
+  }, [firebase]);
 
   useEffect(() => {
     if (!fbLoading) {
       checkLoggedIn();
     }
-  }, [fbLoading]);
+  }, [fbLoading, checkLoggedIn]);
 
   const value = useMemo(() => {
     return { checkLoggedIn, loggedIn, isLoading, currentUser };
-  }, [loggedIn, isLoading, currentUser]);
+  }, [loggedIn, isLoading, currentUser, checkLoggedIn]);
 
   return <LoggedInContext.Provider value={value} {...props} />
 };
