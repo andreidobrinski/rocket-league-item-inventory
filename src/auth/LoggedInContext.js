@@ -13,11 +13,13 @@ export const LoggedInContext = createContext({});
 export const LoggedInContextProvider = props => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [isLoading, setLoading] = useState(true);
+  const [currentUser, setCurrentUser] = useState();
   const { firebase, fbLoading } = useContext(FirebaseContext);
 
   const checkLoggedIn = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+        setCurrentUser(user);
         setLoggedIn(true);
         setLoading(false);
       } else {
@@ -34,8 +36,8 @@ export const LoggedInContextProvider = props => {
   }, [fbLoading]);
 
   const value = useMemo(() => {
-    return { checkLoggedIn, loggedIn, isLoading };
-  }, [loggedIn, isLoading]);
+    return { checkLoggedIn, loggedIn, isLoading, currentUser };
+  }, [loggedIn, isLoading, currentUser]);
 
   return <LoggedInContext.Provider value={value} {...props} />
 };
