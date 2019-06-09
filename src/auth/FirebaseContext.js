@@ -1,5 +1,7 @@
 import React, { createContext, useEffect, useMemo, useState } from 'react';
-import fb from 'firebase';
+import fb from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
 
 import firebaseConfig from '../firebaseConfig';
 
