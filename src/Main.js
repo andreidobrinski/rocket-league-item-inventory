@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { FirebaseContext } from './auth/FirebaseContext';
 import { LoggedInContext } from './auth/LoggedInContext';
 
-// import AddItem from './add-item/AddItem';
+import AddItem from './add-item/AddItem';
 
 const Main = () => {
   const { firebase } = useContext(FirebaseContext);
@@ -12,7 +12,7 @@ const Main = () => {
   return (
     <div>
       <p>you're logged in</p>
-      {/* <AddItem /> */}
+      <AddItem />
       <button
         onClick={() => {
           firebase.auth().signOut();
