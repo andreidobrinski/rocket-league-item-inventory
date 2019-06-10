@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
 
 import { FirebaseContext } from './auth/FirebaseContext';
-import { LoggedInContext } from './auth/LoggedInContext';
+import { UserContext } from './auth/UserContext';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { firebase } = useContext(FirebaseContext);
-  const { checkLoggedIn } = useContext(LoggedInContext);
+  const { checkLoggedIn } = useContext(UserContext);
 
   return (
     <form>

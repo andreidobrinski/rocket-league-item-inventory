@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { FirebaseContextProvider } from './auth/FirebaseContext';
-import { LoggedInContextProvider } from './auth/LoggedInContext';
+import { UserContextProvider } from './auth/UserContext';
 import Login from './auth/Login';
 
 const App = () => (
   <FirebaseContextProvider>
-    <LoggedInContextProvider>
+    <UserContextProvider>
       <Login />
-    </LoggedInContextProvider>
+    </UserContextProvider>
   </FirebaseContextProvider>
 );
 

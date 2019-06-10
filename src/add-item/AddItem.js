@@ -2,7 +2,7 @@
 import React, { useContext, useState } from "react";
 
 import { FirebaseContext } from "../auth/FirebaseContext";
-import { LoggedInContext } from '../auth/LoggedInContext';
+import { UserContext } from '../auth/UserContext';
 import {
   typeOptions,
   rarityOptions,
@@ -12,7 +12,7 @@ import {
 
 const AddItem = () => {
   const { firebase } = useContext(FirebaseContext);
-  const { currentUser: { uid } } = useContext(LoggedInContext);
+  const { currentUser: { uid } } = useContext(UserContext);
   const [isAdding, setAdding] = useState(false);
   const [name, setName] = useState("");
   const [type, setType] = useState("");

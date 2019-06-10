@@ -9,9 +9,9 @@ import React, {
 
 import { FirebaseContext } from './FirebaseContext';
 
-export const LoggedInContext = createContext({});
+export const UserContext = createContext({});
 
-export const LoggedInContextProvider = props => {
+export const UserContextProvider = props => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [isLoading, setLoading] = useState(true);
   const [currentUser, setCurrentUser] = useState();
@@ -40,5 +40,5 @@ export const LoggedInContextProvider = props => {
     return { checkLoggedIn, loggedIn, isLoading, currentUser };
   }, [loggedIn, isLoading, currentUser, checkLoggedIn]);
 
-  return <LoggedInContext.Provider value={value} {...props} />
+  return <UserContext.Provider value={value} {...props} />
 };

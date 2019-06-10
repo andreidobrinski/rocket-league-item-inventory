@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 
-import { LoggedInContext } from './LoggedInContext';
+import { UserContext } from './UserContext';
 import LoginForm from '../LoginForm';
 import Main from '../Main';
 
 const Login = () => {
-  const { loggedIn, isLoading } = useContext(LoggedInContext);
+  const { loggedIn, isLoading } = useContext(UserContext);
 
   if (isLoading) return <p>loading...</p>;
 
