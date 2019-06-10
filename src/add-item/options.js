@@ -26,7 +26,7 @@ export const rarityOptions = [
 ];
 
 export const colourOptions = [
-  { label: 'None', value: 'none' },
+  { label: 'Default', value: '' },
   { label: 'Burnt Sienna', value: 'burntSienna' },
   { label: 'Lime', value: 'lime' },
   { label: 'Titanium White', value: 'titaniumWhite' },
@@ -43,6 +43,7 @@ export const colourOptions = [
 ];
 
 export const certificationOptions = [
+  { label: 'None', value: '' },
   { label: 'Acrobat', value: 'acrobat' },
   { label: 'Aviator', value: 'aviator' },
   { label: 'Goalkeeper', value: 'goalkeeper' },
