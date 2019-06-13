@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 
-import { FirebaseContext } from './auth/FirebaseContext';
-import { UserContext } from './auth/UserContext';
+import { FirebaseContext } from './FirebaseContext';
+import { UserContext } from './UserContext';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');

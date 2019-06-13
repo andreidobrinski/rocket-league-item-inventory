@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import { UserContext } from './UserContext';
-import LoginForm from '../LoginForm';
+import LoginForm from './LoginForm';
 import Main from '../Main';
 
 const Login = () => {
