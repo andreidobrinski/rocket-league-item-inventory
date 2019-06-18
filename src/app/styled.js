@@ -38,4 +38,17 @@ export const Button = styled.button.attrs(() => ({ type: 'button' }))`
   }
 `;
 
+export const MutedButton = styled(Button)`
+  color: black;
+  &::before {
+    background: white;
+  }
+`;
+
+export const DestructiveButton = styled(Button)`
+  &::before {
+    background: red;
+  }
+`;
+
 export default Button;
