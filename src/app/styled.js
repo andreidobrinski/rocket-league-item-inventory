@@ -8,7 +8,7 @@ export const Button = styled.button.attrs(() => ({ type: 'button' }))`
   font-size: 16px;
   border-radius: 6px;
   cursor: pointer;
-  font-family: ${props => props.theme.fonts.header};
+  font-family: ${props => props.theme.fonts.main};
   position: relative;
   z-index: 1;
   overflow: hidden;

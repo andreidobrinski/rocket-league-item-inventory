@@ -28,8 +28,7 @@ export const colours = {
 };
 
 export const fonts = {
-  header: '"Oxygen", "sans-serif"',
-  body: '"Open Sans", "serif"',
+  main: '"Oxygen", -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;',
 };
 
 export const spacer = '16px';
