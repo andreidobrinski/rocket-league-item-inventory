@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
+import { humanize } from 'inflected';
 
 import { DestructiveButton, MutedButton } from '../app/styled';
 import { FirebaseContext } from '../auth/FirebaseContext';
@@ -38,8 +39,8 @@ const Item = ({ item }) => {
   return (
     <Wrap onClick={() => setDeleting(true)}>
       <img src={item.imageLink} alt={item.name} />
-      <p>{item.name}</p>
-      <p>{item.rarity}</p>
+      <p style={{ fontWeight: 'bold' }}>{humanize(item.name)}</p>
+      <p>{humanize(item.rarity)}</p>
       {item.certification && <p>{item.certification}</p>}
     </Wrap>
   );
@@ -77,7 +78,9 @@ const Wrap = styled.button.attrs(() => ({ type: 'button' }))`
   p {
     color: white;
     margin: 0;
-    line-height: 2;
+    font-size: ${props => props.theme.ratio.one}rem;
+    font-family: ${props => props.theme.fonts.main};
+    line-height: ${props => props.theme.ratio.one};
   }
 `;
 
