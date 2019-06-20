@@ -1,7 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-for */
+import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 
+import { Button, MutedButton } from '../app/styled';
 import { FirebaseContext } from '../auth/FirebaseContext';
 import { UserContext } from '../auth/UserContext';
 import {
@@ -10,14 +12,12 @@ import {
   colourOptions,
   certificationOptions,
 } from './options';
-import { Button, MutedButton } from '../app/styled';
 
-const AddItem = () => {
+const AddItem = ({ isAddingItem, setAddingItem }) => {
   const { firebase } = useContext(FirebaseContext);
   const {
     currentUser: { uid },
   } = useContext(UserContext);
-  const [isAdding, setAdding] = useState(false);
 
   const [name, setName] = useState('');
   const [type, setType] = useState('');
@@ -28,8 +28,8 @@ const AddItem = () => {
   const [certification, setCertification] = useState('');
   // TODO add crate
 
-  if (!isAdding)
-    return <Button onClick={() => setAdding(true)}>Add Item</Button>;
+  if (!isAddingItem)
+    return <Button onClick={() => setAddingItem(true)}>Add Item</Button>;
 
   return (
     <Wrap>
@@ -132,14 +132,14 @@ const AddItem = () => {
                 imageLink,
                 price,
               })
-              .then(() => setAdding(false));
+              .then(() => setAddingItem(false));
           }}
           type="submit"
           style={{ marginTop: '32px' }}
         >
           Add Item
         </Button>
-        <MutedButton onClick={() => setAdding(false)} style={{ marginTop: '8px' }}>
+        <MutedButton onClick={() => setAddingItem(false)} style={{ marginTop: '8px' }}>
           Cancel
         </MutedButton>
       </form>
@@ -147,9 +147,15 @@ const AddItem = () => {
   );
 };
 
+AddItem.propTypes = {
+  isAddingItem: PropTypes.bool.isRequired,
+  setAddingItem: PropTypes.func.isRequired,
+};
+
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   h2 {
     margin-bottom: 0;
     font-family: ${props => props.theme.fonts.main};

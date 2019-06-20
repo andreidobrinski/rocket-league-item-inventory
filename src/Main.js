@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import AddItem from './add-item/AddItem';
 import ItemList from './item-list/ItemList';
 import SignOutButton from './auth/SignOutButton';
 
-const Main = () => (
-  <Wrap>
-    <Top>
-      <AddItem />
-      <SignOutButton />
-    </Top>
-    <ItemList />
-  </Wrap>
-);
+const Main = () => {
+  const [isAddingItem, setAddingItem] = useState(false);
+
+  return (
+    <Wrap>
+      <Top>
+        <AddItem isAddingItem={isAddingItem} setAddingItem={setAddingItem} />
+        {!isAddingItem && <SignOutButton />}
+      </Top>
+      <ItemList />
+    </Wrap>
+  );
+};
 
 const Wrap = styled.div`
   min-height: 100vh;
