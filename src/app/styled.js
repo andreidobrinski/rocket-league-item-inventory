@@ -5,14 +5,14 @@ export const Button = styled.button.attrs(() => ({ type: 'button' }))`
   font-weight: bold;
   border: none;
   padding: 8px 16px;
-  font-size: 16px;
+  font-size: ${props => props.theme.ratio.one}rem;
   border-radius: 6px;
   cursor: pointer;
   font-family: ${props => props.theme.fonts.main};
   position: relative;
   z-index: 1;
   overflow: hidden;
-  max-height: 36px;
+  max-height: 39px;
   transition: box-shadow 0.4s;
   &::before {
     content: "";
