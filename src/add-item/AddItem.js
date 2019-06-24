@@ -9,7 +9,7 @@ import { UserContext } from '../auth/UserContext';
 import {
   typeOptions,
   rarityOptions,
-  colourOptions,
+  // colourOptions,
   certificationOptions,
 } from './options';
 
@@ -23,8 +23,8 @@ const AddItem = ({ isAddingItem, setAddingItem }) => {
   const [type, setType] = useState('');
   const [rarity, setRarity] = useState('');
   const [imageLink, setImageLink] = useState('');
-  const [price, setPrice] = useState(0);
-  const [colour, setColour] = useState('');
+  // const [price, setPrice] = useState(0);
+  // const [colour, setColour] = useState('');
   const [certification, setCertification] = useState('');
   // TODO add crate
 
@@ -81,6 +81,20 @@ const AddItem = ({ isAddingItem, setAddingItem }) => {
             id="imageLink"
           />
         </label>
+        <label htmlFor="certification">
+          Certification
+          <select
+            value={certification}
+            onChange={e => setCertification(e.target.value)}
+            id="certification"
+          >
+            {certificationOptions.map(option => (
+              <option value={option.value} key={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </label>
         {/* <label htmlFor="price">
           Price
           <input
@@ -104,20 +118,6 @@ const AddItem = ({ isAddingItem, setAddingItem }) => {
             ))}
           </select>
         </label> */}
-        <label htmlFor="certification">
-          Certification
-          <select
-            value={certification}
-            onChange={e => setCertification(e.target.value)}
-            id="certification"
-          >
-            {certificationOptions.map(option => (
-              <option value={option.value} key={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </label>
         <MutedButton onClick={() => setAddingItem(false)} style={{ marginTop: '8px' }}>
           Cancel
         </MutedButton>
@@ -133,7 +133,8 @@ const AddItem = ({ isAddingItem, setAddingItem }) => {
                 type,
                 rarity,
                 imageLink,
-                price,
+                certification,
+                // price,
               })
               .then(() => setAddingItem(false));
           }}
