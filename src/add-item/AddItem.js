@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 
-import { Button, MutedButton } from '../app/styled';
+import { Button, MutedButton, Form } from '../app/styled';
 import { FirebaseContext } from '../auth/FirebaseContext';
 import { UserContext } from '../auth/UserContext';
 import {
@@ -34,7 +34,7 @@ const AddItem = ({ isAddingItem, setAddingItem }) => {
   return (
     <Wrap>
       <h2>Add New Item</h2>
-      <form>
+      <Form>
         <label htmlFor="name">
           Name
           <input
@@ -142,7 +142,7 @@ const AddItem = ({ isAddingItem, setAddingItem }) => {
         <MutedButton onClick={() => setAddingItem(false)} style={{ marginTop: '8px' }}>
           Cancel
         </MutedButton>
-      </form>
+      </Form>
     </Wrap>
   );
 };
@@ -156,32 +156,6 @@ const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  h2 {
-    margin-bottom: 0;
-    font-family: ${props => props.theme.fonts.main};
-    font-size: ${props => props.theme.ratio.two}rem;
-  }
-  form,
-  label {
-    display: flex;
-    flex-direction: column;
-    font-size: ${props => props.theme.ratio.one}rem;
-  }
-  label {
-    margin-bottom: 4px;
-  }
-  input {
-    border: none;
-    border-radius: 4px;
-    padding: 6px;
-    font-family: ${props => props.theme.fonts.main};
-    font-size: ${props => props.theme.ratio.one}rem;
-  }
-  select {
-    padding: 6px;
-    font-family: ${props => props.theme.fonts.main};
-    font-size: ${props => props.theme.ratio.one}rem;
-  }
 `;
 
 export default AddItem;

@@ -51,4 +51,57 @@ export const DestructiveButton = styled(Button)`
   }
 `;
 
-export default Button;
+export const AppWrap = styled.div`
+  min-height: 100vh;
+  height: 100%;
+  position: relative;
+  background: rgba(255, 255, 255, 0.5);
+  background-clip: padding-box;
+  border: solid 8px transparent;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -8px;
+    background: linear-gradient(
+      to right,
+      ${props => props.theme.colours.berry},
+      ${props => props.theme.colours.indigo}
+    );
+  }
+  
+  h2 {
+    margin-bottom: 0;
+    font-family: ${props => props.theme.fonts.main};
+    font-size: ${props => props.theme.ratio.two}rem;
+  }
+`;
+
+export const Form = styled.form`
+  form,
+  label {
+    display: flex;
+    flex-direction: column;
+    font-size: ${props => props.theme.ratio.one}rem;
+  }
+  label {
+    margin-bottom: 4px;
+  }
+  input {
+    border: none;
+    border-radius: 4px;
+    padding: 6px;
+    font-family: ${props => props.theme.fonts.main};
+    font-size: ${props => props.theme.ratio.one}rem;
+  }
+  select {
+    padding: 6px;
+    font-family: ${props => props.theme.fonts.main};
+    font-size: ${props => props.theme.ratio.one}rem;
+  }
+`;
