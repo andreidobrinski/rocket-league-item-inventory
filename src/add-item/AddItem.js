@@ -81,7 +81,7 @@ const AddItem = ({ isAddingItem, setAddingItem }) => {
             id="imageLink"
           />
         </label>
-        <label htmlFor="price">
+        {/* <label htmlFor="price">
           Price
           <input
             value={price}
@@ -103,7 +103,7 @@ const AddItem = ({ isAddingItem, setAddingItem }) => {
               </option>
             ))}
           </select>
-        </label>
+        </label> */}
         <label htmlFor="certification">
           Certification
           <select
@@ -118,6 +118,9 @@ const AddItem = ({ isAddingItem, setAddingItem }) => {
             ))}
           </select>
         </label>
+        <MutedButton onClick={() => setAddingItem(false)} style={{ marginTop: '8px' }}>
+          Cancel
+        </MutedButton>
         <Button
           onClick={e => {
             e.preventDefault();
@@ -135,13 +138,10 @@ const AddItem = ({ isAddingItem, setAddingItem }) => {
               .then(() => setAddingItem(false));
           }}
           type="submit"
-          style={{ marginTop: '32px' }}
+          style={{ marginTop: '32px', marginLeft: '16px' }}
         >
           Add Item
         </Button>
-        <MutedButton onClick={() => setAddingItem(false)} style={{ marginTop: '8px' }}>
-          Cancel
-        </MutedButton>
       </Form>
     </Wrap>
   );
