@@ -12,9 +12,9 @@ const Item = ({ item }) => {
   const {
     currentUser: { uid },
   } = useContext(UserContext);
-  const [deleting, setDeleting] = useState(false);
+  const [isDeleting, setDeleting] = useState(false);
 
-  if (deleting)
+  if (isDeleting)
     return (
       <Wrap as="div">
         Delete this item?
