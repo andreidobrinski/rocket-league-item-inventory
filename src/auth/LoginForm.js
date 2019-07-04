@@ -11,11 +11,26 @@ const LoginForm = () => {
   const { firebase } = useContext(FirebaseContext);
   const { checkLoggedIn } = useContext(UserContext);
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => checkLoggedIn())
+      .catch(() => {
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(email, password)
+          .then(() => checkLoggedIn())
+          .catch(() => checkLoggedIn());
+      });
+  };
+
   return (
     <AppWrap>
       <h2 style={{ textAlign: 'center' }}>Rocket League Item Inventory</h2>
       <Wrap>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <label htmlFor="email">
             Email
             <input
@@ -29,25 +44,12 @@ const LoginForm = () => {
             Password
             <input
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={e => setPassword(e.target.value)}
               type="password"
               id="password"
             />
           </label>
-          <Button
-            onClick={(e) => {
-              e.preventDefault();
-              firebase.auth().signInWithEmailAndPassword(email, password)
-                .then(() => checkLoggedIn())
-                .catch(() => {
-                  firebase.auth().createUserWithEmailAndPassword(email, password)
-                  .then(() => checkLoggedIn())
-                  .catch(() => checkLoggedIn());
-                });
-            }}
-            type="submit"
-            style={{ marginTop: '16px' }}
-          >
+          <Button type="submit" style={{ marginTop: '16px' }}>
             Login
           </Button>
         </Form>
