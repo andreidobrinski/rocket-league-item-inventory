@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { AppWrap } from './app/styled';
 import AddItem from './add-item/AddItem';
+import AddItemButton from './add-item/AddItemButton';
 import ItemList from './item-list/ItemList';
 import SignOutButton from './auth/SignOutButton';
 
@@ -12,9 +13,10 @@ const Main = () => {
   return (
     <AppWrap>
       <Top>
-        <AddItem isAddingItem={isAddingItem} setAddingItem={setAddingItem} />
-        {!isAddingItem && <SignOutButton />}
+        <AddItemButton isAddingItem={isAddingItem} setAddingItem={setAddingItem} />
+        <SignOutButton />
       </Top>
+      <AddItem isAddingItem={isAddingItem} setAddingItem={setAddingItem} />
       <ItemList />
     </AppWrap>
   );
