@@ -82,6 +82,11 @@ const Wrap = styled.button.attrs(() => ({ type: 'button' }))`
     font-family: ${props => props.theme.fonts.main};
     line-height: ${props => props.theme.ratio.one};
   }
+  transition: 0.2s;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.3);
+  }
 `;
 
 export default Item;
