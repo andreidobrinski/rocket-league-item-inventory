@@ -12,13 +12,13 @@ This project was built with:
 ## Current Features and Roadmap
 
 This project currently supports:
-- Authentication with Email/Password
+- Authentication with Email Link
 - Adding items to your list
 - Deleting items from your list
 
 Some ideas for future features include:
 - Editing items in your list
-- Providing an individual route that can link to your list
+- Providing an individual public URL that shows your list
 - Providing a master list of base items (templates) to pull from
 - Anonymous login and list creation
 - Allowing members to show what console they play/trade on
