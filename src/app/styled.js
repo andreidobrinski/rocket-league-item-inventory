@@ -15,7 +15,7 @@ export const Button = styled.button.attrs(() => ({ type: 'button' }))`
   max-height: 39px;
   transition: box-shadow 0.4s;
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -34,7 +34,7 @@ export const Button = styled.button.attrs(() => ({ type: 'button' }))`
     transform: translateY(-50%);
   }
   &:hover {
-    box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
   }
 `;
 
@@ -74,11 +74,17 @@ export const AppWrap = styled.div`
       ${props => props.theme.colours.indigo}
     );
   }
-  
+
   h2 {
     margin-bottom: 0;
     font-family: ${props => props.theme.fonts.main};
     font-size: ${props => props.theme.ratio.two}rem;
+  }
+
+  p {
+    font-size: ${props => props.theme.ratio.one}rem;
+    font-family: ${props => props.theme.fonts.main};
+    line-height: ${props => props.theme.ratio.one};
   }
 `;
 

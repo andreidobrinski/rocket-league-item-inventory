@@ -78,9 +78,6 @@ const Wrap = styled.button.attrs(() => ({ type: 'button' }))`
   p {
     color: white;
     margin: 0;
-    font-size: ${props => props.theme.ratio.one}rem;
-    font-family: ${props => props.theme.fonts.main};
-    line-height: ${props => props.theme.ratio.one};
   }
   transition: 0.2s;
   &:hover {
