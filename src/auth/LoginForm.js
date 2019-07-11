@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import store from 'store';
 
+import About from '../app/About';
 import { AppWrap, Form, Button } from '../app/styled';
 import { FirebaseContext } from './FirebaseContext';
 import { UserContext } from './UserContext';
@@ -73,6 +74,9 @@ const LoginForm = () => {
             </Button>
           </Form>
         </Wrap>
+        <Fade delay={1000}>
+          <About />
+        </Fade>
       </Fade>
     </AppWrap>
   );

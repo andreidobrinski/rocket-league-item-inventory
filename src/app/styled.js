@@ -81,7 +81,13 @@ export const AppWrap = styled.div`
     font-size: ${props => props.theme.ratio.two}rem;
   }
 
-  p {
+  h3 {
+    font-family: ${props => props.theme.fonts.main};
+    font-size: ${props => props.theme.ratio.two}rem;
+  }
+
+  p,
+  li {
     font-size: ${props => props.theme.ratio.one}rem;
     font-family: ${props => props.theme.fonts.main};
     line-height: ${props => props.theme.ratio.one};

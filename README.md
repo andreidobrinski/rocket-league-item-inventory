@@ -1,7 +1,7 @@
 # Rocket League Item Inventory
 
 ## Description
-An app made to help keep track of items that you would be open to trading in Rocket League.
+An app made to help keep track of the items you want to trade in Rocket League.
 
 This project was built with:
 - [Create React App](https://github.com/facebook/create-react-app)
