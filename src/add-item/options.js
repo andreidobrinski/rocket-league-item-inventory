@@ -25,23 +25,6 @@ export const rarityOptions = [
   { label: 'Black Market', value: 'black_market' },
 ];
 
-export const colourOptions = [
-  { label: 'Default', value: '' },
-  { label: 'Burnt Sienna', value: 'burnt_sienna' },
-  { label: 'Lime', value: 'lime' },
-  { label: 'Titanium White', value: 'titanium_white' },
-  { label: 'Cobalt', value: 'cobalt' },
-  { label: 'Crimson', value: 'crimson' },
-  { label: 'Forest Green', value: 'forest_green' },
-  { label: 'Grey', value: 'grey' },
-  { label: 'Orange', value: 'orange' },
-  { label: 'Pink', value: 'pink' },
-  { label: 'Purple', value: 'purple' },
-  { label: 'Saffron', value: 'saffron' },
-  { label: 'Sky Blue', value: 'sky_blue' },
-  { label: 'Black', value: 'black' },
-];
-
 export const certificationOptions = [
   { label: 'None', value: '' },
   { label: 'Acrobat', value: 'acrobat' },
@@ -59,4 +42,39 @@ export const certificationOptions = [
   { label: 'Tactician', value: 'tactician' },
   { label: 'Turtle', value: 'turtle' },
   { label: 'Victor', value: 'victor' },
+];
+
+export const colourOptions = [
+  { label: 'Default', value: '' },
+  { label: 'Burnt Sienna', value: 'burnt_sienna' },
+  { label: 'Lime', value: 'lime' },
+  { label: 'Titanium White', value: 'titanium_white' },
+  { label: 'Cobalt', value: 'cobalt' },
+  { label: 'Crimson', value: 'crimson' },
+  { label: 'Forest Green', value: 'forest_green' },
+  { label: 'Grey', value: 'grey' },
+  { label: 'Orange', value: 'orange' },
+  { label: 'Pink', value: 'pink' },
+  { label: 'Purple', value: 'purple' },
+  { label: 'Saffron', value: 'saffron' },
+  { label: 'Sky Blue', value: 'sky_blue' },
+  { label: 'Black', value: 'black' },
+];
+
+export const crateOptions = [
+  { label: 'None', value: 'none' },
+  { label: 'Accelerator', value: 'accelerator' },
+  { label: 'Elevation', value: 'elevation' },
+  { label: 'Ferocity', value: 'ferocity' },
+  { label: 'Golden Egg', value: 'golden_egg' },
+  { label: 'Impact', value: 'impact' },
+  { label: 'Nitro', value: 'nitro' },
+  { label: 'Overdrive', value: 'overdrive' },
+  { label: 'Players Choice 1', value: 'players_choice_1' },
+  { label: 'Spring Fever', value: 'spring_fever' },
+  { label: 'Triumph', value: 'triumph' },
+  { label: 'Turbo', value: 'turbo' },
+  { label: 'Velocity', value: 'velocity' },
+  { label: 'Victory', value: 'victory' },
+  { label: 'Zephyr', value: 'zephyr' },
 ];
