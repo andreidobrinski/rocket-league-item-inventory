@@ -10,8 +10,9 @@ import { UserContext } from '../auth/UserContext';
 import {
   typeOptions,
   rarityOptions,
-  // colourOptions,
   certificationOptions,
+  colourOptions,
+  crateOptions,
 } from './options';
 
 const AddItem = ({ isAddingItem, setAddingItem }) => {
@@ -24,10 +25,10 @@ const AddItem = ({ isAddingItem, setAddingItem }) => {
   const [type, setType] = useState('');
   const [rarity, setRarity] = useState('');
   const [imageLink, setImageLink] = useState('');
-  // const [price, setPrice] = useState(0);
-  // const [colour, setColour] = useState('');
   const [certification, setCertification] = useState('');
-  // TODO add crate
+  const [colour, setColour] = useState('');
+  const [crate, setCrate] = useState('');
+  const [price, setPrice] = useState(0);
 
   return (
     <Wrap>
@@ -81,29 +82,35 @@ const AddItem = ({ isAddingItem, setAddingItem }) => {
               ))}
             </select>
           </label>
-          {/* <label htmlFor="price">
-          Price
-          <input
-            value={price}
-            onChange={e => setPrice(e.target.value)}
-            type="number"
-            id="price"
-          />
-        </label>
-        <label htmlFor="colour">
-          Colour
-          <select
-            value={colour}
-            onChange={e => setColour(e.target.value)}
-            id="colour"
-          >
-            {colourOptions.map(option => (
-              <option value={option.value} key={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </label> */}
+          <label htmlFor="colour">
+            Colour
+            <select value={colour} onChange={e => setColour(e.target.value)} id="colour">
+              {colourOptions.map(option => (
+                <option value={option.value} key={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label htmlFor="colour">
+            Crate
+            <select value={crate} onChange={e => setCrate(e.target.value)} id="crate">
+              {crateOptions.map(option => (
+                <option value={option.value} key={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label htmlFor="price">
+            Price
+            <input
+              value={price}
+              onChange={e => setPrice(e.target.value)}
+              type="number"
+              id="price"
+            />
+          </label>
           <MutedButton onClick={() => setAddingItem(false)} style={{ marginTop: '8px' }}>
             Cancel
           </MutedButton>
@@ -120,7 +127,9 @@ const AddItem = ({ isAddingItem, setAddingItem }) => {
                   rarity,
                   imageLink,
                   certification,
-                  // price,
+                  colour,
+                  crate,
+                  price,
                 })
                 .then(() => setAddingItem(false));
             }}
