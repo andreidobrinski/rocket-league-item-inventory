@@ -23,12 +23,13 @@ export const media = Object.keys(sizes).reduce((accumulator, label) => {
 }, {});
 
 export const colours = {
-  berry: '#bf4098',
-  indigo: '#406dbf',
+  primary: 'rgba(3, 135, 179, 100%)',
+  secondary: 'rgba(3, 135, 179, 59%)',
 };
 
 export const fonts = {
-  main: '"Oxygen", -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;',
+  main:
+    '"Oxygen", -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;',
 };
 
 export const spacer = '16px';

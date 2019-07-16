@@ -23,9 +23,9 @@ export const Button = styled.button.attrs(() => ({ type: 'button' }))`
     height: 200%;
     background: linear-gradient(
       to bottom right,
-      ${props => props.theme.colours.berry},
-      ${props => props.theme.colours.indigo},
-      ${props => props.theme.colours.berry}
+      ${props => props.theme.colours.primary},
+      ${props => props.theme.colours.secondary},
+      ${props => props.theme.colours.primary}
     );
     transition: transform 0.4s;
     z-index: -1;
@@ -70,8 +70,8 @@ export const AppWrap = styled.div`
     margin: -8px;
     background: linear-gradient(
       to right,
-      ${props => props.theme.colours.berry},
-      ${props => props.theme.colours.indigo}
+      ${props => props.theme.colours.primary},
+      ${props => props.theme.colours.secondary}
     );
   }
 
