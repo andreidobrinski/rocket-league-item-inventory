@@ -80,7 +80,7 @@ const ToggleButton = styled.button.attrs(() => ({ type: 'button' }))`
   background-color: transparent;
   border: none;
   text-decoration: underline;
-  color: ${props => props.theme.colours.secondary};
+  opacity: 0.8;
 `;
 
 export default About;
