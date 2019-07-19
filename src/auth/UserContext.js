@@ -45,7 +45,7 @@ export const UserContextProvider = props => {
       }
       checkLoggedIn();
     }
-  }, [fbLoading, checkLoggedIn]);
+  }, [fbLoading, checkLoggedIn, firebase]);
 
   const value = useMemo(() => {
     return { checkLoggedIn, loggedIn, isLoading, currentUser };
