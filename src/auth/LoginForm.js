@@ -6,31 +6,12 @@ import store from 'store';
 import About from '../app/About';
 import { AppWrap, Form, Button } from '../app/styled';
 import { FirebaseContext } from './FirebaseContext';
-import { UserContext } from './UserContext';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const { firebase } = useContext(FirebaseContext);
-  const { checkLoggedIn } = useContext(UserContext);
-
-  if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
-    let authEmail = store.get('email');
-    if (!authEmail) {
-      authEmail = window.prompt(
-        'Seems like you opened this on a different device. Please confirm your email.'
-      );
-    }
-    firebase
-      .auth()
-      .signInWithEmailLink(authEmail, window.location.href)
-      .then(() => {
-        checkLoggedIn();
-        store.remove('email');
-      })
-      .catch(() => checkLoggedIn());
-  }
 
   const handleSubmit = e => {
     e.preventDefault();
