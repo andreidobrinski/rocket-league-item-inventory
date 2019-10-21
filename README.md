@@ -1,9 +1,11 @@
 # Rocket League Item Inventory
 
-## Description
 An app made to help keep track of the items you want to trade in Rocket League.
 
+## Technologies
+
 This project was built with:
+
 - [Create React App](https://github.com/facebook/create-react-app)
 - [React Hooks](https://reactjs.org/docs/hooks-intro.html)
 - [Firebase](https://firebase.google.com/)
@@ -12,11 +14,13 @@ This project was built with:
 ## Current Features and Roadmap
 
 This project currently supports:
+
 - Authentication with Email Link
 - Adding items to your list
 - Deleting items from your list
 
 Some ideas for future features include:
+
 - Editing items in your list
 - Providing an individual public URL that shows your list
 - Providing a master list of base items (templates) to pull from
