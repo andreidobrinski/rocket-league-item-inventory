@@ -19,7 +19,7 @@ export const rarityOptions = [
   { label: 'Common', value: 'common' },
   { label: 'Uncommon', value: 'uncommon' },
   { label: 'Rare', value: 'rare' },
-  { label: 'Very Rate', value: 'very_rare' },
+  { label: 'Very Rare', value: 'very_rare' },
   { label: 'Import', value: 'import' },
   { label: 'Exotic', value: 'exotic' },
   { label: 'Black Market', value: 'black_market' },
