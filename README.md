@@ -2,6 +2,10 @@
 
 An app made to help keep track of the items you want to trade in Rocket League.
 
+[Demo](https://rl-inventory.web.app/)
+
+![rocket league inventory demo](rl.gif)
+
 ## Technologies
 
 This project was built with:
