@@ -152,7 +152,7 @@ AddItem.propTypes = {
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 0 auto 16px;
   max-width: 300px;
 `;
 
