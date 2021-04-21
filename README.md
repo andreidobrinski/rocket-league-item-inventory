@@ -1,10 +1,10 @@
+![rocket league inventory demo](rl.gif)
+
 # Rocket League Item Inventory
 
 An app made to help keep track of the items you want to trade in Rocket League.
 
-[Demo](https://rl-inventory.web.app/)
-
-![rocket league inventory demo](rl.gif)
+[Link to Demo](https://rl-inventory.web.app/)
 
 ## Technologies
 
@@ -30,3 +30,5 @@ Some ideas for future features include:
 - Providing a master list of base items (templates) to pull from
 - Anonymous login and list creation
 - Allowing members to show what console they play/trade on
+
+![logo](./public/apple-touch-icon.png)
